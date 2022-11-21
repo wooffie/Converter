@@ -22,25 +22,38 @@ public class ConverterController {
     ConverterService converterService;
 
     @PostMapping("/convert")
-    ResponseEntity<String> convert(@RequestParam("file") MultipartFile file,
-                                   @RequestParam("source") Format sourceFormat,
-                                   @RequestParam("target") Format targetFormat) {
+    ResponseEntity<Response> convert(@RequestParam(value = "file", required = false) MultipartFile file,
+                                     @RequestParam(value = "source", required = false) Format sourceFormat,
+                                     @RequestParam(value = "target", required = false) Format targetFormat) {
+        Response response = new Response();
+
+        if (file == null) {
+            response.setMessage("No file provided!");
+            return ResponseEntity.badRequest().body(response);
+        }
+        if (sourceFormat == null || targetFormat == null) {
+            response.setMessage("No formats specified!");
+            return ResponseEntity.badRequest().body(response);
+        }
+
         JsonNode node;
         try {
             String sourceString = new String(file.getBytes());
             node = converterService.read(sourceString, sourceFormat);
         } catch (IOException e) {
-            return ResponseEntity.badRequest().build();
+            response.setMessage("Invalid input!");
+            return ResponseEntity.badRequest().body(response);
         }
 
         String result;
         try {
             result = converterService.convert(node, targetFormat);
         } catch (JsonProcessingException e) {
-            return ResponseEntity.badRequest().build();
+            response.setMessage("Can't convert your input!");
+            return ResponseEntity.badRequest().body(response);
         }
-
-        return ResponseEntity.ok(result);
+        response.setResult(result);
+        return ResponseEntity.ok(response);
     }
 
 
