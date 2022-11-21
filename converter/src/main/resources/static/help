@@ -1,0 +1,10 @@
+For convert your file to another format need:
+1. Send POST request on /api/convert
+2. In form-data on "file" key choose your file
+3. In form-data on "source" key choose source format*
+4. In form-data on "target" key choose target formats**
+
+* Available formats: XML, YAML, JSON
+** Also can choose several format like: "JSON, XML"
+
+More info here: https://github.com/wooffie/Converter#readme
