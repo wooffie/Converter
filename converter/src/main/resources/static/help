@@ -1,6 +1,7 @@
 For convert your file to another format need:
 1. Send POST request on /api/convert
 2. In form-data on "file" key choose your file
+2.1 Alternative use "string" and print data
 3. In form-data on "source" key choose source format*
 4. In form-data on "target" key choose target formats**
 
