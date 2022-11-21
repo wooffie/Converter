@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "io.freefair.lombok" version "6.6-rc1"
 }
 
 group = 'com.wooftown'
