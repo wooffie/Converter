@@ -18,7 +18,7 @@ $ ./gradlew build
 ```
 Run jar file:
 ``` console
-$ java -jar build/libs/converter-0.0.1-SNAPSHOT.jar
+$ java -jar build/libs/converter-v1.0.jar
 ```
 
 ## How to run with docker
