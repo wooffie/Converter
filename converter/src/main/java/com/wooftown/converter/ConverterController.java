@@ -32,7 +32,8 @@ public class ConverterController {
         try {
             JsonNode node = yamlMapper.readTree(yaml);
             ObjectMapper xmlMapper = new XmlMapper();
-            xml = xmlMapper.writeValueAsString(node);
+
+            xml = xmlMapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
         } catch (JsonProcessingException e) {
             return ResponseEntity.badRequest().build();
         }
@@ -55,7 +56,7 @@ public class ConverterController {
         try {
             JsonNode node = xmlMapper.readTree(xml);
             ObjectMapper yamlMapper = new YAMLMapper();
-            yaml = yamlMapper.writeValueAsString(node);
+            yaml = yamlMapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
         } catch (JsonProcessingException e) {
             return ResponseEntity.badRequest().build();
         }
