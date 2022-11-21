@@ -29,13 +29,14 @@ public class ConverterController {
 
 
     @PostMapping("/convert")
-    ResponseEntity<Response> convert(@RequestParam(value = "file", required = false) MultipartFile file,
+    ResponseEntity<Response> convert(@RequestParam(value = "string", required = false) String string,
+                                     @RequestParam(value = "file", required = false) MultipartFile file,
                                      @RequestParam(value = "source", required = false) Format sourceFormat,
                                      @RequestParam(value = "target", required = false) List<Format> targetFormats) {
         Response response = new Response();
 
-        if (file == null) {
-            response.setMessage("No file provided! get /api/help for more info");
+        if (file == null && string == null) {
+            response.setMessage("No input provided! get /api/help for more info");
             return ResponseEntity.badRequest().body(response);
         }
         if (sourceFormat == null || targetFormats == null || targetFormats.isEmpty()) {
@@ -45,7 +46,11 @@ public class ConverterController {
 
         JsonNode node;
         try {
-            String sourceString = new String(file.getBytes());
+            String sourceString = string;
+            if (file != null) {
+                sourceString = new String(file.getBytes());
+            }
+
             node = converterService.read(sourceString, sourceFormat);
         } catch (IOException e) {
             response.setMessage("Invalid input! get /api/help for more info");
