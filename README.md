@@ -30,11 +30,11 @@ CD into app folder:
 ``` console
 $ cd converter
 ```
-Build with gradle:
+Build docker image:
 ``` console
 $ docker build -t converterApp .
 ```
-Run jar file:
+Run docker image:
 ``` console
 $ docker run -p 8080:8080 converterApp
 ```
