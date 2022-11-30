@@ -13,10 +13,6 @@ Clone repository:
 ``` console
 $ git clone https://github.com/wooffie/Converter.git
 ```
-CD into app folder:
-``` console
-$ cd converter
-```
 Build with gradle:
 ``` console
 $ ./gradlew build
@@ -27,21 +23,15 @@ $ java -jar build/libs/converter-v1.0.jar
 ```
 
 ## How to run with docker
-Clone repository:
-``` console
-$ git clone https://github.com/wooffie/Converter.git
-```
-CD into app folder:
-``` console
-$ cd converter
-```
+You can use [image from DockerHub](https://hub.docker.com/r/wooffie/converter)
+
 Build docker image:
 ``` console
-$ docker build -t converterApp .
+$ docker build -t wooffie/converter
 ```
 Run docker image:
 ``` console
-$ docker run -p 8080:8080 converterApp
+$ docker run -p 8080:8080 wooffie/converter
 ```
 ## How to use
 
