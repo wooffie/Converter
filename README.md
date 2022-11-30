@@ -27,7 +27,7 @@ You can use [image from DockerHub](https://hub.docker.com/r/wooffie/converter)
 
 Build docker image:
 ``` console
-$ docker build -t wooffie/converter
+$ docker pull wooffie/converter
 ```
 Run docker image:
 ``` console
