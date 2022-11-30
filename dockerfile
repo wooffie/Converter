@@ -14,6 +14,6 @@ EXPOSE 8080
 # Create new directory for jar
 RUN mkdir /app
 # Move jar to directory
-COPY --from=build /home/gradle/src/build/libs/converter-v1.0.jar /app/app.jar
+COPY --from=build /home/gradle/src/build/libs/converter-v1.1.jar /app/app.jar
 # Run application
 ENTRYPOINT ["java","-jar","/app/app.jar"]
