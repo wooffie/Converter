@@ -1,5 +1,10 @@
 # Converter Service
 
+[![Tests](https://github.com/wooffie/converter/actions/workflows/gradle-tests.yml/badge.svg?branch=master)](https://github.com/wooffie/converter/actions/workflows/gradle-tests.yml)
+(Develop
+[![Tests](https://github.com/wooffie/converter/actions/workflows/gradle-tests.yml/badge.svg?branch=develop)](https://github.com/wooffie/converter/actions/workflows/gradle-tests.yml) )
+
+
 Simple service which takes HTTP POST request with [XML, YAML or JSON] file and returns the response with [XML, YAML or JSON] translated format. Also you can beautify your file with this service!
 
 ## How to run
